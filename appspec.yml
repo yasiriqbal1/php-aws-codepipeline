@@ -4,6 +4,14 @@ files:
   - source: /
     destination: /var/www/html
     overwrite: true
+permissions:
+    - object: /var/www/html
+      pattern: "**"
+      owner: apache
+      group: apache
+      mode: 755
+      type:
+        - file
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies.sh
